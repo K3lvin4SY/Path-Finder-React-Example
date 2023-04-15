@@ -18,6 +18,14 @@
   background-color: rgb(109, 30, 182) !important;
 }
 
+.selectedTile {
+  background-color: rgb(48, 36, 60) !important;
+}
+
+.selectedTile:hover {
+  background-color: rgb(33, 25, 41) !important;
+}
+
 .tileMap {
   padding: 10px 10px 10px 10px;
 }
