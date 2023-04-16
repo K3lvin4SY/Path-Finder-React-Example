@@ -6,7 +6,7 @@ import { TileMap } from './tilemap';
 
 export const Board = forwardRef((props, ref) => {
   const [history, setHistory] = useState([Array(props.sizeX*props.sizeY).fill(null)]);
-  const [tilesClasses] = useState(Array(props.sizeX*props.sizeY).fill(null));
+  const [tilesClasses, setTilesClasses] = useState(Array(props.sizeX*props.sizeY).fill(null));
   const [currentMove, setCurrentMove] = useState(0);
   const currentTiles = history[currentMove];
 
@@ -17,14 +17,23 @@ export const Board = forwardRef((props, ref) => {
   function handleEdit(nextTiles, nextTilesClasses, i) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextTiles];
     //const updatedClass = [tilesClasses[i] = nextTilesClasses];
-    tilesClasses[i] = {selected: nextTilesClasses, other: tilesClasses[i].other};
-    /*tilesClasses.map((value, index) => {
+    //tilesClasses[i] = {selected: nextTilesClasses, other: tilesClasses[i].other};
+    console.log(tilesClasses.map((value, index) => {
       if (index === i) {
         console.log(value);
         return {selected: nextTilesClasses, other: value.other};
       }
       return value;
-    });*/
+    }));
+    const updatedTilesClasses = tilesClasses.map((value, index) => {
+      if (index === i) {
+        console.log(value);
+        return {selected: nextTilesClasses, other: value.other};
+      }
+      return value;
+    });
+    console.log(updatedTilesClasses);
+    setTilesClasses(updatedTilesClasses);
     console.log(i);
     console.log(tilesClasses);
     console.log(tilesClasses[i]);
