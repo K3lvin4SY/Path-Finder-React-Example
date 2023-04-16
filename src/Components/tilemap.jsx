@@ -6,14 +6,14 @@ export function TileMap({ tilesClasses, tiles, sizeX, sizeY, onEdit }) {
   function handleClick(i) {
     const nextTiles = tiles.slice();
     const nextTilesClasses = tilesClasses.slice();
-    if (nextTilesClasses[i] !== "selectedTile") {
+    if (nextTilesClasses[i] !== "selectedTile ") {
       nextTiles[i] = '';
-      nextTilesClasses[i] = "selectedTile";
+      nextTilesClasses[i] = nextTilesClasses[i]+"selectedTile ";
     } else {
       nextTiles[i] = '';
-      nextTilesClasses[i] = "";
+      nextTilesClasses[i] = nextTilesClasses[i].replace("selectedTile ", "");
     }
-    onEdit(nextTiles, "selectedTile", i);
+    onEdit(nextTiles, nextTilesClasses[i], i);
   }
   for (let index = 0; index < tiles.length; index++) {
     tiles[index] = index.toString();

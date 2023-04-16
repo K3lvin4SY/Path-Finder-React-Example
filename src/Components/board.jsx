@@ -18,11 +18,10 @@ export const Board = forwardRef((props, ref) => {
     tilesClasses[i] = nextTilesClasses;
     console.log(i);
     console.log(tilesClasses);
-    console.log(tilesClasses[i]);
+    console.log("---------------------------------------------");
     setHistory(nextHistory);
     //setTilesClasses(updatedClass);
     setCurrentMove(nextHistory.length - 1);
-    console.log(tilesClasses);
   }
 
   useImperativeHandle(ref, () => ({
