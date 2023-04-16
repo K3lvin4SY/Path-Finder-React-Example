@@ -5,6 +5,7 @@ import './App.css';
 import { Box } from '@mui/material';
 import { Board } from './Components/board';
 import { SizeSlider } from './Components/slider';
+import { BuildModeSelector } from './Components/buildModeSelector';
 
 function App() {
   const [gridSizeX, setGridSizeX] = useState(10);
@@ -17,7 +18,10 @@ function App() {
     console.log(size);
     setGridSizeY(size);
   }
-  const childCompRef = useRef()
+  const childCompRef = useRef();
+  function updateTileTool(value) {
+    //childCompRef.current.chnageTileType(value);
+  }
 
   return (
     <Box className='baseContainer' sx={{ flexGrow: 1 }}>
@@ -26,6 +30,7 @@ function App() {
         <Box className='tileMapSettings'>
           <SizeSlider title={"Width"} onChange={updateGridSizeX}/>
           <SizeSlider title={"Height"} onChange={updateGridSizeY}/>
+          <BuildModeSelector title={"Tile Tools"} onChange={updateTileTool}/>
           <button onClick={() => childCompRef.current.clearGrid()}>Clear Me</button>
           <button onClick={() => childCompRef.current.chnageTileType("pathTile")}>pathTile</button>
           <button onClick={() => childCompRef.current.chnageTileType("selectedTile")}>selectedTile</button>
