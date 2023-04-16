@@ -6,12 +6,12 @@ export function TileMap({ tilesClasses, tiles, sizeX, sizeY, onEdit }) {
   function handleClick(i) {
     const nextTiles = tiles.slice();
     const nextTilesClasses = tilesClasses.slice();
-    if (nextTilesClasses[i].selected !== "selectedTile") {
+    if (nextTilesClasses[i] !== "selectedTile") {
       nextTiles[i] = '';
-      //nextTilesClasses[i].selected = "selectedTile";
+      nextTilesClasses[i] = "selectedTile";
     } else {
       nextTiles[i] = '';
-      //nextTilesClasses[i].selected = "";
+      nextTilesClasses[i] = "";
     }
     onEdit(nextTiles, "selectedTile", i);
   }

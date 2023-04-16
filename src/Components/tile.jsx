@@ -11,7 +11,7 @@ export const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export function Tile({ classes, value, onTileClick }) {
-  const classNames = "tile "+classes.selected+" "+classes.other
+  const classNames = "tile "+classes//+classes.selected+" "+classes.other
   return (
     <Item className={classNames} onClick={onTileClick}>
       {value}
