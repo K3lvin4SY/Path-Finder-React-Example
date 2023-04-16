@@ -11,32 +11,39 @@
 
 /* Board styles */
 .boardContainer {
-  height: 1000px;
-  max-height: 65vw;
+  max-height: 1000px;
+  height: 65vw;
 
-  width: 1000px;
-  max-width: 65vw;
+  max-width: 1000px;
+  width: 65vw;
   background-color: crimson;
   overflow: hidden;
+  padding: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .board {
-  background-color: rgba(230, 230, 230, 0.716) !important;
+  background-color: rgb(230, 230, 230) !important;
 
   /*height: 1000px;
   width: 1000px;
   max-height: 65vw;
   max-width: 65vw;*/
-  max-width: calc(65vw-16px);
+  max-height: 1000px;
+  max-width: 1000px;
   
-  border-radius: 100px;
-  width: calc(1000px-16px);
+
+  display: block;
+  height: max-content;
 }
 
 /* Tilemap styles */
 .tileMap {
   padding: 10px 10px 10px 10px;
   transition: 1s;
+  max-height: 1000px;
+  max-width: 1000px;
 }
 
 /* Tile styles */
@@ -58,10 +65,19 @@
   background-color: rgb(33, 25, 41) !important;
 }
 
+.pathTile {
+  background-color: rgb(19, 123, 83) !important;
+}
+
+.pathTile:hover {
+  background-color: rgb(13, 87, 59) !important;
+}
+
 /* Tilemap settings styles */
 .tileMapSettings {
   max-width: 65vw;
   width: 1000px;
+  padding: 30px;
 }
 
 .tileAmount {

@@ -8,6 +8,9 @@ export const Board = forwardRef((props, ref) => {
   const [history, setHistory] = useState([Array(props.sizeX*props.sizeY).fill(null)]);
   const [tilesClasses, setTilesClasses] = useState(Array(props.sizeX*props.sizeY).fill(""));
   const [currentMove, setCurrentMove] = useState(0);
+  const [currentTileType, setCurrentTileType] = useState("selectedTile");
+  // eslint-disable-next-line
+  const [pathTiles, setPathTiles] = useState(Array());
   const currentTiles = history[currentMove];
 
   function handleEdit(nextTiles, nextTilesClasses, i) {
@@ -26,15 +29,18 @@ export const Board = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     clearGrid() {
-      setTilesClasses(Array(props.sizeX*props.sizeY).fill(""));
+      setTilesClasses(Array(tilesClasses.length).fill(""));
       console.log(tilesClasses);
+    },
+    chnageTileType(tileType) {
+      setCurrentTileType(tileType);
     },
   }))
 
   return (
     <Box className='boardContainer'>
       <Item className='board' elevation={24}>
-        <TileMap tilesClasses={tilesClasses} tiles={currentTiles} sizeX={props.sizeX} sizeY={props.sizeY} onEdit={handleEdit}/>
+        <TileMap pathTiles={pathTiles} tileType={currentTileType} tilesClasses={tilesClasses} tiles={currentTiles} sizeX={props.sizeX} sizeY={props.sizeY} onEdit={handleEdit}/>
       </Item>
     </Box>
   )

@@ -27,6 +27,8 @@ function App() {
           <SizeSlider title={"Width"} onChange={updateGridSizeX}/>
           <SizeSlider title={"Height"} onChange={updateGridSizeY}/>
           <button onClick={() => childCompRef.current.clearGrid()}>Clear Me</button>
+          <button onClick={() => childCompRef.current.chnageTileType("pathTile")}>pathTile</button>
+          <button onClick={() => childCompRef.current.chnageTileType("selectedTile")}>selectedTile</button>
         </Box>
       </Box>
     </Box>
