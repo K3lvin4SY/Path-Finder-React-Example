@@ -21,6 +21,7 @@
   padding: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .board {
@@ -41,7 +42,6 @@
 /* Tilemap styles */
 .tileMap {
   padding: 10px 10px 10px 10px;
-  transition: 1s;
   max-height: 1000px;
   max-width: 1000px;
 }
