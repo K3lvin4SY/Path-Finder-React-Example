@@ -6,7 +6,7 @@
   display: block;
   width: min-content;
   margin: auto;
-  background-color: coral;
+  /*background-color: coral;*/
 }
 
 /* Board styles */
@@ -16,7 +16,7 @@
 
   max-width: 1000px;
   width: 65vw;
-  background-color: crimson;
+  /*background-color: crimson;*/
   overflow: hidden;
   padding: 30px;
   display: flex;
