@@ -2,55 +2,20 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { Tile } from './tile';
 
-export function TileMap({ tilesClasses, tiles, sizeX, sizeY, tileType, pathTiles, onEdit }) {
+export function TileMap({ tilesClasses, tiles, sizeX, sizeY, onClick }) {
   function handleClick(i) {
-    const nextTiles = tiles.slice();
-    const nextTilesClasses = tilesClasses.slice();
-
-    if (nextTilesClasses[i] === undefined) {
-      nextTilesClasses[i] = "";
-    }
-
-    if (!nextTilesClasses[i].includes(tileType)) {
-      nextTiles[i] = '';
-
-      // update pathTiles list
-      if (tileType === "pathTile") {
-        pathTiles.push(i);
-      } else if (tileType !== "pathTile") {
-        pathTiles.forEach((element, index) => {
-          if (element === i) {
-            if (index > -1) {
-              pathTiles.splice(index, 1);
-            }
-          }
-        });
-      }
-
-      // updates tile classes
-      nextTilesClasses[i] = tileType;
-    } else {
-      nextTiles[i] = '';
-
-      // update pathTiles list
-      if (tileType === "pathTile") {
-        pathTiles.forEach((element, index) => {
-          if (element === i) {
-            if (index > -1) {
-              pathTiles.splice(index, 1);
-            }
-          }
-        });
-      }
-
-      // updates tile classes
-      nextTilesClasses[i] = nextTilesClasses[i].replace(tileType, "");
-    }
-    console.log(pathTiles);
-    onEdit(nextTiles, nextTilesClasses[i], i);
+    console.log(i);
+    console.log(tilesClasses[i]);
+    //onClick(i);
   }
+
+
   for (let index = 0; index < tiles.length; index++) {
-    tiles[index] = index.toString();
+    if (index != tiles.length-1) {
+      tiles[index] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[index];
+    } else {
+      tiles[index] = "";
+    }
   }
 
   return (

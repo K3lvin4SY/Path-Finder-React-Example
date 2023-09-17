@@ -83,3 +83,71 @@
 .tileAmount {
   background-color: none;
 }
+
+.tileNr_0 {
+  order: 1;
+}
+.tileNr_1 {
+  order: 2;
+}
+.tileNr_2 {
+  order: 3;
+}
+.tileNr_3 {
+  order: 4;
+}
+.tileNr_4 {
+  order: 5;
+}
+.tileNr_5 {
+  order: 6;
+  background-color: rgb(19, 123, 83) !important;
+}
+.tileNr_6 {
+  order: 7;
+}
+.tileNr_7 {
+  order: 8;
+}
+.tileNr_8 {
+  order: 9;
+}
+.tileNr_9 {
+  order: 10;
+}
+.tileNr_10 {
+  order: 11;
+}
+.tileNr_11 {
+  order: 12;
+}
+.tileNr_12 {
+  order: 13;
+}
+.tileNr_13 {
+  order: 14;
+}
+.tileNr_14 {
+  order: 15;
+}
+.tileNr_15 {
+  order: 16;
+}
+.tileNr_16 {
+  order: 17;
+}
+.tileNr_17 {
+  order: 18;
+}
+.tileNr_18 {
+  order: 19;
+}
+.tileNr_19 {
+  order: 20;
+}
+.tileNr_20 {
+  order: 21;
+}
+.tileNr_21 {
+  order: 22;
+}

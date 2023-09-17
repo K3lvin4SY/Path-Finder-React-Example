@@ -5,42 +5,54 @@ import { Item } from './tile';
 import { TileMap } from './tilemap';
 
 export const Board = forwardRef((props, ref) => {
-  const [history, setHistory] = useState([Array(props.sizeX*props.sizeY).fill(null)]);
   const [tilesClasses, setTilesClasses] = useState(Array(props.sizeX*props.sizeY).fill(""));
-  const [currentMove, setCurrentMove] = useState(0);
-  const [currentTileType, setCurrentTileType] = useState("selectedTile");
+  const [currentTiles, setCurrentTiles] = useState(Array(props.sizeX*props.sizeY).fill(""));
   // eslint-disable-next-line
-  const [pathTiles, setPathTiles] = useState(Array());
-  const currentTiles = history[currentMove];
 
-  function handleEdit(nextTiles, nextTilesClasses, i) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextTiles];
+  function handleEdit(i) {
     //const updatedClass = [tilesClasses[i] = nextTilesClasses];
     //tilesClasses[i] = {selected: nextTilesClasses, other: tilesClasses[i].other};
     
-    tilesClasses[i] = nextTilesClasses;
     console.log(i);
-    console.log(tilesClasses);
     console.log("---------------------------------------------");
-    setHistory(nextHistory);
     //setTilesClasses(updatedClass);
-    setCurrentMove(nextHistory.length - 1);
   }
 
   useImperativeHandle(ref, () => ({
-    clearGrid() {
-      setTilesClasses(Array(tilesClasses.length).fill(""));
+    solveGrid() {
+      var values = Array(tilesClasses.length);
+      for (let index = 0; index < values.length; index++) {
+        values[index] = "tileNr_"+index;
+        
+      }
+      setTilesClasses(values);
       console.log(tilesClasses);
     },
-    chnageTileType(tileType) {
-      setCurrentTileType(tileType);
+    mixGrid() {
+      for (let i = tilesClasses.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Generate a random index from 0 to i
+    
+        // Swap array[i] and array[j]
+        [tilesClasses[i], tilesClasses[j]] = [tilesClasses[j], tilesClasses[i]];
+      }
+      
+      var values = Array(tilesClasses.length);
+      for (let index = 0; index < values.length; index++) {
+        values[index] = [...tilesClasses][index];
+        
+      }
+      setTilesClasses(values);
+      console.log(values);
+    },
+    clearGrid() {
+      setTilesClasses(Array(tilesClasses.length).fill(""));
     },
   }))
 
   return (
     <Box className='boardContainer'>
       <Item className='board' elevation={24}>
-        <TileMap pathTiles={pathTiles} tileType={currentTileType} tilesClasses={tilesClasses} tiles={currentTiles} sizeX={props.sizeX} sizeY={props.sizeY} onEdit={handleEdit}/>
+        <TileMap tilesClasses={tilesClasses} tiles={currentTiles} sizeX={props.sizeX} sizeY={props.sizeY} onClick={handleEdit}/>
       </Item>
     </Box>
   )

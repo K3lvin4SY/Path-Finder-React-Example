@@ -8,8 +8,8 @@ import { SizeSlider } from './Components/slider';
 import { BuildModeSelector } from './Components/buildModeSelector';
 
 function App() {
-  const [gridSizeX, setGridSizeX] = useState(10);
-  const [gridSizeY, setGridSizeY] = useState(10);
+  const [gridSizeX, setGridSizeX] = useState(4);
+  const [gridSizeY, setGridSizeY] = useState(4);
   function updateGridSizeX(size) {
     console.log(size);
     setGridSizeX(size);
@@ -19,8 +19,14 @@ function App() {
     setGridSizeY(size);
   }
   const childCompRef = useRef();
-  function updateTileTool(value) {
-    //childCompRef.current.chnageTileType(value);
+  function mixGrid() {
+    childCompRef.current.mixGrid();
+  }
+  function solveGrid() {
+    childCompRef.current.solveGrid();
+  }
+  function clearGrid() {
+    childCompRef.current.clearGrid();
   }
 
   return (
@@ -28,12 +34,9 @@ function App() {
       <Box className='container'>
         <Board sizeX={gridSizeX} sizeY={gridSizeY} ref={childCompRef}/>
         <Box className='tileMapSettings'>
-          <SizeSlider title={"Width"} onChange={updateGridSizeX}/>
-          <SizeSlider title={"Height"} onChange={updateGridSizeY}/>
-          <BuildModeSelector title={"Tile Tools"} onChange={updateTileTool}/>
-          <button onClick={() => childCompRef.current.clearGrid()}>Clear Me</button>
-          <button onClick={() => childCompRef.current.chnageTileType("pathTile")}>pathTile</button>
-          <button onClick={() => childCompRef.current.chnageTileType("selectedTile")}>selectedTile</button>
+          <SizeSlider title={"Width"} onChange={updateGridSizeX} size={gridSizeX}/>
+          <SizeSlider title={"Height"} onChange={updateGridSizeY} size={gridSizeY}/>
+          <BuildModeSelector title={"Tile Tools"} onMix={mixGrid} onSolve={solveGrid} onClear={clearGrid}/>
         </Box>
       </Box>
     </Box>
