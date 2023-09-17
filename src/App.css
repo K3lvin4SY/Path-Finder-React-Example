@@ -84,6 +84,10 @@
   background-color: none;
 }
 
+.tileNr {
+  transition: 100ms;
+}
+
 .tileNr_0 {
   order: 1;
 }
@@ -101,7 +105,6 @@
 }
 .tileNr_5 {
   order: 6;
-  background-color: rgb(19, 123, 83) !important;
 }
 .tileNr_6 {
   order: 7;

@@ -21,7 +21,7 @@ export function TileMap({ tilesClasses, tiles, sizeX, sizeY, onClick }) {
   return (
     <Grid style={{ 'aspect-ratio':  (sizeX/sizeY).toString() }} id="tileMap" className='tileMap' container spacing={{ xs: 2, md: 2 }} columns={{ md: sizeX*2 }}>
       {Array.from(Array(sizeX*sizeY)).map((_, index) => (
-        <Grid item xs={5} sm={5} md={2} key={index}>
+        <Grid className={tilesClasses[index]} item xs={5} sm={5} md={2} key={index}>
           <Tile classes={tilesClasses[index]} value={tiles[index]} onTileClick={() => handleClick(index)} />
         </Grid>
       ))}

@@ -22,7 +22,7 @@ export const Board = forwardRef((props, ref) => {
     solveGrid() {
       var values = Array(tilesClasses.length);
       for (let index = 0; index < values.length; index++) {
-        values[index] = "tileNr_"+index;
+        values[index] = "tileNr tileNr_"+index;
         
       }
       setTilesClasses(values);
