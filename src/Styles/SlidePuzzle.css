@@ -1,0 +1,87 @@
+.baseContainer {
+  margin: 50px 50px 50px 50px;
+}
+
+.container {
+  display: block;
+  width: min-content;
+  margin: auto;
+  /*background-color: coral;*/
+}
+
+/* Board styles */
+.boardContainer {
+  max-height: 1000px;
+  height: 65vw;
+
+  max-width: 1000px;
+  width: 65vw;
+  /*background-color: crimson;*/
+  overflow: hidden;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.board {
+  background-color: rgb(230, 230, 230) !important;
+
+  /*height: 1000px;
+  width: 1000px;
+  max-height: 65vw;
+  max-width: 65vw;*/
+  max-height: 1000px;
+  max-width: 1000px;
+  
+
+  display: block;
+  height: max-content;
+}
+
+
+/* Tilemap styles */
+.tileMap {
+  padding: 10px 10px 10px 10px;
+  max-height: 1000px;
+  max-width: 1000px;
+}
+
+/* Tile styles */
+.tile {
+  background-color: blueviolet !important;
+  aspect-ratio: 1;
+  transition: 1s;
+}
+
+.tile:hover {
+  background-color: rgb(109, 30, 182) !important;
+}
+
+.selectedTile {
+  background-color: rgb(48, 36, 60) !important;
+}
+
+.selectedTile:hover {
+  background-color: rgb(33, 25, 41) !important;
+}
+
+.pathTile {
+  background-color: rgb(19, 123, 83) !important;
+}
+
+.pathTile:hover {
+  background-color: rgb(13, 87, 59) !important;
+}
+
+/* Tilemap settings styles */
+.tileMapSettings {
+  max-width: 65vw;
+  width: 1000px;
+  padding: 30px;
+}
+
+.tileAmount {
+  background-color: none;
+}

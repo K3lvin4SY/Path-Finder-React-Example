@@ -38,8 +38,8 @@ export const Board = forwardRef((props, ref) => {
   }))
 
   return (
-    <Box className='boardContainer'>
-      <Item className='board' elevation={24}>
+    <Box className='boardContainer boardContainerPreview'>
+      <Item className='board boardPreview' elevation={24}>
         <TileMap pathTiles={pathTiles} tileType={currentTileType} tilesClasses={tilesClasses} tiles={currentTiles} sizeX={props.sizeX} sizeY={props.sizeY} onEdit={handleEdit}/>
       </Item>
     </Box>

@@ -2,8 +2,8 @@ import React from "react";
 import { Slider } from '@mui/material';
 import { useState } from 'react';
 
-export function SizeSlider({ title, onChange }) {
-  const [value, setValue] = useState(10);
+export function SizeSlider({ title, onChange, size}) {
+  const [value, setValue] = useState(size);
   function handleChange(event, newValue) {
     setValue(newValue);
     onChange(value);

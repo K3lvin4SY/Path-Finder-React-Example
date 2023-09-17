@@ -2,12 +2,7 @@ import React from "react";
 import { ButtonGroup, Button } from '@mui/material';
 import { useState, useRef } from 'react';
 
-export function BuildModeSelector({ title, onChange }) {
-  const [value, setCurrentTileTool] = useState("selectedTile");
-  function handleChange(newValue) {
-    //setCurrentTileTool(newValue);
-    onChange(newValue);
-  }
+export function BuildModeSelector({ title, onChange, onClear }) {
 
   const childCompRef = useRef();
 
@@ -19,8 +14,9 @@ export function BuildModeSelector({ title, onChange }) {
         variant="contained"
         aria-label="Disabled elevation buttons"
       >
-        <Button onClick={() => childCompRef.current.chnageTileType("selectedTile")}>Place Walls</Button>
-        <Button onClick={() => childCompRef.current.chnageTileType("pathTile")}>Place Path Points</Button>
+        <Button onClick={() => onChange("selectedTile")}>Place Walls</Button>
+        <Button onClick={() => onChange("pathTile")}>Place Path Points</Button>
+        <Button onClick={() => onClear()}>Place Path Points</Button>
       </ButtonGroup>
     </>
   );
